@@ -170,8 +170,8 @@ echo "$valPlus:$minPlus:$secPlus <br></br>";
 
 // 11 uzduotis
 
-$r1 = rand(1000, 9999);
-$r2 = rand(1000, 9999);
+$r1 = 1111;
+$r2 = 1111;
 $r3 = rand(1000, 9999);
 $r4 = rand(1000, 9999);
 $r5 = rand(1000, 9999);
@@ -180,8 +180,8 @@ $r6 = rand(1000, 9999);
 $f6 = max($r1, $r2, $r3, $r4, $r5, $r6);
 $f1 = min($r1, $r2, $r3, $r4, $r5, $r6);
 
-$f6replaced = str_replace("$f6 ", '', "$r1 $r2 $r3 $r4 $r5 $r6 ");
-$f1replaced = str_replace("$f1 ", '', $f6replaced);
+$f6replaced = preg_replace("/$f6\s/ ", '', "$r1 $r2 $r3 $r4 $r5 $r6 ", 1);
+$f1replaced = preg_replace("/$f1\s/ ", '', $f6replaced, 1);
 
 $n1string = substr($f1replaced, -5, 4);
 $n1int = intval($n1string);
@@ -195,8 +195,8 @@ $n4int = intval($n4string);
 $f5 = max ($n1int, $n2int, $n3int, $n4int);
 $f2 = min ($n1int, $n2int, $n3int, $n4int);
 
-$f5replaced = str_replace("$f5 ", '', "$n1int $n2int $n3int $n4int ");
-$f2replaced = str_replace("$f2 ", '', $f5replaced);
+$f5replaced = preg_replace("/$f5\s/ ", '', "$n1int $n2int $n3int $n4int ", 1);
+$f2replaced = preg_replace("/$f2\s/ ", '', $f5replaced, 1);
 
 $m1string = substr($f2replaced, -5, 4);
 $m1int = intval($m1string);
@@ -207,10 +207,6 @@ $f4 = max($m1int, $m2int);
 $f3 = min($m1int, $m2int);
 
 echo "$f1, $f2, $f3, $f4, $f5, $f6";
-
-
-
-
 
 
 ?>
