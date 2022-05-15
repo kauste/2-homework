@@ -66,9 +66,15 @@ echo '<br></br>';
 // 8 uzduotis
 
 $starWars =  'Star Wars: Episode '.str_repeat(' ', rand(0,5)). rand(1,9) . ' - A New Hope';
-echo $starWars. '<br>';
-
 echo ($starWars);
+preg_match_all('/[1-9]{1}/i', $starWars, $matches, PREG_SET_ORDER);
+echo '<br>';
+print_r ($matches);
+
+
+
+
+
 echo '<br></br>';
 
 // 9 uzduotis
@@ -127,13 +133,4 @@ for ($i = 0; $i < 10; $i++){
 echo $randomWords;
 
 //11 antras variantas destytojo
-
-$movieEng = "Don't Be a Menace to South Central While Drinking Your Juice in the Hood";
-$movieLt = "Tik nereikia gąsdinti Pietų Centro, geriant sultis pas save kvartale";
-
-$movieEngLtArray2 = explode(' ', $movieEng. ' '. $movieEng,);
-
-$shuffle($movieEngLtArray2);
-
-prin_r(aray_splice($movieEngLtArray2, 0, 10));
 ?>

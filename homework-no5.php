@@ -39,8 +39,8 @@ foreach($array1 as $row){
 }
 echo "Didziausias skaicius yra $bigNum";
 
-// 2 uždavinys c kitaip
-echo '<br>------------2c kitaip-------------<br>';
+// 2 uždavinys c dummy dummy
+echo '<br>------------2c dummy dummy-------------<br>';
 
 $no0sum = 0;
 $no1sum = 0;
@@ -108,6 +108,11 @@ echo '<pre>';
 print_r($secondLvlIndexes);
 
 
+// 2 uždavinys c SIS
+echo '<br>------------2c SIS-------------<br>';
+
+
+
 // 2 uzdavinys d
 echo '<br>------------2d-------------<br>';
 $array1[] = [];
@@ -158,6 +163,9 @@ unset($row2);
 
 // 4 uzdavinys
 echo '<br>------------4-------------<br>';
+
+// 4 uzdavinys
+echo '<br>------------4 kitas-------------<br>';
 
 $sums = [];
 foreach ($array2 as $key => $row2){
@@ -295,6 +303,116 @@ for ($i = 0; $i < count($placeInRowArray); $i++){
 print_r($array3b);
 
  // 7 uzdavinys
- echo '<br>------------7 kitaip-------------<br>';
- 
+ echo '<br>------------7-------------<br>';
+$letters = range('A','Z');
+$lastLetter = count($letters) - 1;
+ foreach($array3 as &$row){
+     $letterPos = rand(0, $lastLetter);
+     $name = ($letters[$letterPos]);
+     $row['Name'] = $name;
+     $letterPos = rand(0, $lastLetter);
+     $surname = ($letters[$letterPos]);
+     $row['Surname'] = $surname;
+ }
+
+print_r($array3);
+unset($row);
+
+// 8  uzdavinys
+echo '<br>------------8 uzdavinys-------------<br>';
+
+$array4 = [];
+for($i = 0; $i < 10; $i++){
+    $secondLvlArray = [];
+    $secondLvlArrayLength = rand(0, 10);
+
+    if ($secondLvlArrayLength == 0){
+        $array4[] = rand(0, 10);
+    } else {
+        for($a = 0; $a < $secondLvlArrayLength; $a++){
+            $secondLvlArray[$a] = rand(0, 10);
+        }
+        $array4[] = $secondLvlArray;
+    }
+    
+}
+print_r($array4);
+
+// 9  uzdavinys
+echo '<br>------------9 uzdavinys-------------<br>';
+$sum = 0;
+
+$keys = [];
+foreach($array4 as $key =>$row){
+    $sumOfSecondLvl = 0;
+    if (gettype($row) != 'array'){
+        $sum += $row;
+        $sumOfSecondLvl = $row;
+    
+    } else {
+        foreach ($row as $key2 => $item){
+            $sum += $item;
+            $sumOfSecondLvl += $item;
+        }
+    }
+    $keys[$key] = $sumOfSecondLvl;
+}
+
+array_multisort($keys, SORT_NUMERIC, $array4);
+print_r($array4);
+
+
+// 10  uzdavinys
+echo '<br>------------10 uzdavinys-------------<br>';
+
+$symbols = ['#', '%', '+', '*', '@', '裡'];
+$decimal = range(0, 9);
+$hexadecimalNumbs = [...$decimal, 'A', 'B','C', 'D', 'E', 'F'];
+$hexNumbsLength = count($hexadecimalNumbs);
+$LastHexPosition = $hexNumbsLength - 1;
+
+$array5 = [];
+for($i = 0; $i < 10; $i++){
+    $subArray= [];
+    for($i2 = 0; $i2 < 10; $i2++){
+        $symbol = $symbols[rand(0, 5)];
+        $hexadecimalNum = '#';
+        for($hex = 0; $hex < 6; $hex++){
+            $randHex = rand(0, $LastHexPosition); // array_rand(array_flip($hexadecimalNumbs));
+            $hexadecimalNum .= $hexadecimalNumbs[$randHex];
+        }
+        $subArray[] = ['value' => $symbol, 'color' => $hexadecimalNum];
+    }
+    $array5[] = $subArray;
+}
+
+print_r($array5);
+
+foreach($array5 as $subArray){
+    foreach($subArray as $key => $item){
+        $color = $item['color'];
+        $value = $item['value'];
+        echo "<div style='color:$color; display: inline-block; width: 10px; height: 10px; margin: 5px;'>$value</div>";
+    }
+    echo '<br>';
+}
+
+// 11  uzdavinys
+echo '<br>------------11 uzdavinys-------------<br>';
+
+do {
+    $a = rand(0, 1000);
+    $b = rand(0, 1000);
+} while ($a == $b);
+$long = rand(10,30);
+$sk1 = $sk2 = 0;
+
+echo '<h3>Skaičiai '.$a.' ir '.$b.'</h3>';
+$c = [];
+for ($i=0; $i<$long; $i++) {
+    $c[] = array_rand(array_flip([$a, $b]));
+}
+echo '<h4>Masyvas:</h4>';
+echo '<pre>';
+print_r($c);
 ?>
