@@ -295,34 +295,42 @@ do {
     }
 } while (!$isChanged);
 
-    shuffle($array101);
-    $maxValue = max($array101);
-    $maxKey = array_search($maxValue, $array101);
-    unset($array101[$maxKey]);
+   echo 'prasided';
+print_r( $array101) .'<br>';
 
+do {
+shuffle($array101);
     $lastValueIndex = count($array101) - 1;
     $middleElementIndex = $lastValueIndex / 2;
     $middleIndexValue = $array101[$middleElementIndex];
+    
+    $maxValue = max($array101);
+    $maxKey = array_search($maxValue, $array101);
+    unset($array101[$maxKey]);
     unset($array101[$middleElementIndex]);
 
     $array101[$middleElementIndex] = $maxValue;
     $array101[$maxKey] = $middleIndexValue;
+   
     ksort($array101);
 
-
+    
     $array101 = array_chunk($array101, 51);
+    
     $array101[0] = array_chunk($array101[0], 50);
     $array101 = [...$array101[0], $array101[1]];
-
+   
     $lastArray101Index = count($array101) - 1;
     $firstHalfSum = array_sum($array101[0]);
     $secoundtHalfSum = array_sum($array101[$lastArray101Index]);
     $absSubstract = abs($firstHalfSum - $secoundtHalfSum);
-
+    
 
 asort($array101[0]);
 arsort($array101[$lastArray101Index]);
 $array101 = [...$array101[0], ...$array101[1], ...$array101[$lastArray101Index]];
+
+} while ($absSubstract > 30);
 
 echo '<pre>';
 print_r($array101);

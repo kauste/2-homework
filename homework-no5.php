@@ -411,8 +411,18 @@ echo '<h3>Skaičiai '.$a.' ir '.$b.'</h3>';
 $c = [];
 for ($i=0; $i<$long; $i++) {
     $c[] = array_rand(array_flip([$a, $b]));
+
 }
 echo '<h4>Masyvas:</h4>';
 echo '<pre>';
 print_r($c);
+echo '</pre>';
+
+echo $sk1;
+
+
+
+
+
+
 ?>
