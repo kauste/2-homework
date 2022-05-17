@@ -7,4 +7,9 @@ do {
     $circles++;
 } while ($mouses < 20);
 echo $circles;
+
+// Regex: o jeigu kvieciame regex funkcija, kad surastu stringe esanti funkcijos rezutata? Ieskoti rezultato
+// o su unshit negalima ideti kinamojo su key pavadinimu?
+
+
 ?>
