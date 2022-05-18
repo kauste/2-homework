@@ -68,12 +68,12 @@ print_r($rez1);
 // Parašykite funkciją, kuri skaičiuotų, iš kiek sveikų skaičių jos argumentas dalijasi be liekanos (išskyrus vienetą ir patį save) Argumentą užrašykite taip, kad būtų galima įvesti tik sveiką skaičių;
 
 echo '<br>----------4-------------<br>';
-$anyNum = rand(0, 90001);
+$anyNum = -10;
 
 function dalikliai ($number){
     $sum = 0;
-    for($i = 1; $i < $number; $i++){
-        if($number % $i == 0){
+    for($i = 1; $i < abs($number); $i++){
+        if( $number % $i == 0){ // reiketu rasyti '$number != 1 &&' bet nerasiau, kad galeciau perpanaudoti
             $sum++;
         }
     } return $sum;
@@ -84,7 +84,11 @@ echo dalikliai(3000);
 echo '<br>';
 echo dalikliai(90000);
 echo '<br>';
-echo dalikliai($anyNum);
+if (is_int($anyNum)) {
+    echo dalikliai($anyNum);
+} else {
+     echo 'iveskite sveika skaiciu';
+}
 
 // 4  uzdavinys priskiriu funkcija
 echo '<br>----------4 priskiriu funkcija-------------<br>';
@@ -221,8 +225,9 @@ function sum2 ($array){
 $rezult2 = sum2 ($array7);
 echo $rezult2;
 
-// 9 uzdavinys kitaip
+// 9 uzdavinys 
 echo '<br>----------9-------------<br>';
+
 $array9 = [];
 for ($i = 0; $i < 3; $i++){
     $array9[] = rand(1, 33);
@@ -248,8 +253,57 @@ function primal (&$array){
 }
 
 print_r(primal($array9));
+
+// 10 uzdavinys kitaip
+echo '<br>----------10-------------<br>';
+$array10 = [];
+ for($i = 0; $i < 10; $i++){
+     $SecondLvl = [];
+     for($i2 = 0; $i2 < 10; $i2++){
+        $SecondLvl[] = rand(1, 100);
+     }
+     $array10[] = $SecondLvl;
+ }
+print_r($array10);
+
+function sum10 ($array){
+    $sumOfPrimals = 0;
+    $amountOfPrimals = 0;
+    foreach($array as $row){
+        foreach($row as $item)
+        if (dalikliai($item) <= 1){
+            $sumOfPrimals += $item;
+            $amountOfPrimals++;
+        }
+    }
+
+    if ($sumOfPrimals / $amountOfPrimals < 70) {
+        $minNum = 10000; 
+        foreach ($array as $row){ //nesuveike
+            if (min($row) < $minNum){
+                $minNum = min($row);
+            }
+        }
+       echo 'min Num'. $minNum . '<br>';
+        foreach($array as $key => $row){
+            if(in_array($minNum, $row)){
+                $minElementKey = array_search($minNum, $row);
+                $row[$minElementKey] += 3;
+       //         echo $key . '<br>'. $minElementKey . '<br>' . 'reiksme'. $row[$minElementKey] . '<br>';
+                sum10($array);
+                break;
+            }
+        }
+
+    } return $array;
+    
+}
+echo 'Array su vidurkiu didesniu nei 70: <br>';
+print_r(sum10($array10));
+
+
 // PASKAITOS UZDAVINYS
-echo '<br>----------PASKAITOS UZDAVINYS-------------<br>';
+/*echo '<br>----------PASKAITOS UZDAVINYS-------------<br>';
 $sk = rand(100, 999);
 echo 'skaicius:'. $sk;
 echo '<br>';
@@ -271,5 +325,5 @@ foreach ($array as &$item){
     $item =  $item($sk);
 }
 
-print_r($array);
+print_r($array);*/
 ?>
