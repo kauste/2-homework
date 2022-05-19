@@ -16,7 +16,7 @@ function App() {
   const stebuklas2 = () => {
     console.log('Stebuklu Stebuklas');
                               // setSpalva(spalva === 'red'? 'skyblue' : 'red'); // spalva galima keisti tik per setSpalva, negalime tiesiogiai;
-   setSpalva((oldColor) => oldColor === 'red'? 'skyblue' : 'red')
+   setSpalva((oldColor) => oldColor === 'red'? 'skyblue' : 'red');
     console.log(spalva);
   }
 
@@ -25,6 +25,7 @@ function App() {
   }
 
   const addKv = () => setKv(kvM => [...kvM, randColor()]);
+  const remKv =() => setKv(kvM => kvM.slice(2));
   return (
     <div className="App">
       <header className="App-header">
@@ -39,6 +40,7 @@ function App() {
        <button onClick={stebuklas2}>Press without</button> 
        <button onClick={changeNum}>changeNum</button>
        <button onClick={addKv}>Add []</button>
+       <button onClick={remKv}>Remove</button>
       </header>
     </div>
   );
