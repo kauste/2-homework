@@ -266,7 +266,8 @@ $array10 = [];
  }
 print_r($array10);
 
-function sum10 ($array){
+function biggerAverage ($array){
+
     $sumOfPrimals = 0;
     $amountOfPrimals = 0;
     foreach($array as $row){
@@ -276,30 +277,32 @@ function sum10 ($array){
             $amountOfPrimals++;
         }
     }
-
+    echo 'Vidurkis: '. $sumOfPrimals / $amountOfPrimals . ' ';
     if ($sumOfPrimals / $amountOfPrimals < 70) {
-        $minNum = 10000; 
-        foreach ($array as $row){ //nesuveike
+        $minNum = 10000;
+        $keyOfArray = 0;
+        foreach ($array as $key => $row){ 
             if (min($row) < $minNum){
                 $minNum = min($row);
+                $keyOfArray = $key;
             }
         }
-       echo 'min Num'. $minNum . '<br>';
-        foreach($array as $key => $row){
-            if(in_array($minNum, $row)){
-                $minElementKey = array_search($minNum, $row);
-                $row[$minElementKey] += 3;
-       //         echo $key . '<br>'. $minElementKey . '<br>' . 'reiksme'. $row[$minElementKey] . '<br>';
-                sum10($array);
-                break;
-            }
-        }
+    echo 'Key of Array: '. $keyOfArray . ' Min Num:'. $minNum . ' ' ;
 
-    } return $array;
-    
+       foreach ($array[$keyOfArray] as $key => $element) {
+           if($element == $minNum){
+            $array[$keyOfArray][$key]+= 3;
+        echo '+3 = ' . $array[$keyOfArray][$key] . '<br>'.'<br>';
+               biggerAverage ($array);
+               break;
+           }
+       }
+
+    } 
+    return $array;
 }
 echo 'Array su vidurkiu didesniu nei 70: <br>';
-print_r(sum10($array10));
+print_r(biggerAverage($array10));
 
 
 // PASKAITOS UZDAVINYS
