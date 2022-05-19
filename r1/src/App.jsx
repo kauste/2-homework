@@ -1,38 +1,44 @@
-
-import './App.css';
-import Hello from './Components/009/Hello';
-import HodyHo from './Components/009/HodyHo';
-import NonsenceText2 from './Components/009/NonsenceText2';
-import NonsenceText3 from './Components/009/NonsenceText3';
-import ZandB from './Components/009/ZandB';
-import Zuiki from './Components/009/Zuiki';
-import NonsenceText from './Components/009/NonsenceText';
-import Button from './Components/009/Button';
-import MrGreen from './Components/009/MrGreen';
 import { useState } from 'react';
+import './App.css';
+import randColor from './functions/randColor';
 
+const cats = ['Plikis', 'Rainis', 'Murkis'];
 function App() {
-  const [mrGreen, setMrGreen] = useState('green');
-  const clickButton = () => ( setMrGreen(s => s ==='pink' ? 'green' : 'pink'));
-  const [red, setRed] = useState(false);
-  const clickRed = () => ( setRed(r => !r));
-  const[minus, setMinus] = useState(false);
-  const minusBut = () => (setMinus(min => !min));
+
+  const [spalva, setSpalva] = useState('red');
+  const [number, setNumber] = useState(1);
+  const [kv, setKv] = useState([]);
+
+  const stebuklas = (a) => {
+    console.log('Stebuklu Stebuklas ' + a);
+  }
+
+  const stebuklas2 = () => {
+    console.log('Stebuklu Stebuklas');
+                              // setSpalva(spalva === 'red'? 'skyblue' : 'red'); // spalva galima keisti tik per setSpalva, negalime tiesiogiai;
+   setSpalva((oldColor) => oldColor === 'red'? 'skyblue' : 'red')
+    console.log(spalva);
+  }
+
+  const changeNum = () => {
+    setNumber((number => number + 1));
+  }
+
+  const addKv = () => setKv(kvM => [...kvM, randColor()]);
   return (
     <div className="App">
       <header className="App-header">
-        <Hello spalva ="red"></Hello>
-        <HodyHo></HodyHo>
-        <Hello spalva="blue" size={50}></Hello>
-        <Hello skaicius={4}></Hello>
-        <Zuiki></Zuiki>
-        <NonsenceText someText="Kaip tavo dienele?"></NonsenceText>
-        <ZandB></ZandB>
-        <NonsenceText2  someText2="Life is life" someText2b="nanananana"></NonsenceText2>
-        <NonsenceText3 someText3="Not sure" someText3b="so damn not sure" color3="skyblue"></NonsenceText3>
-        <h1>Uplifting <span style={{color:mrGreen, backgroundColor:red ? 'red' : null}} clickButton={clickButton}> 1 {minus ? 'minus': null}</span></h1>
-        <Button minusBut= {minusBut} clickRed={clickRed} clickButton={clickButton}></Button>
-        <MrGreen mrGreen={mrGreen}></MrGreen>
+       <h1 style={{color:spalva}}>State</h1>
+       <div className="kvc">
+       {
+         kv.map((c, i) => <div key={i} className="kv" style={{background: c}}>{i}</div>)
+       }
+       </div>
+       <span>{number}</span>
+       <button onClick={()=> stebuklas('Abra kadabra')}>Press with</button>
+       <button onClick={stebuklas2}>Press without</button> 
+       <button onClick={changeNum}>changeNum</button>
+       <button onClick={addKv}>Add []</button>
       </header>
     </div>
   );

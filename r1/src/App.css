@@ -41,3 +41,18 @@
   height: 100px;
   border: 1px solid white;
 }
+.kvc {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+.kv {
+  width: 77px;
+  height: 77px;
+  background-color: crimson;
+  margin: 7px;
+  border-radius: 5px;
+}
