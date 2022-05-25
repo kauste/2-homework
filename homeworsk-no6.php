@@ -297,13 +297,17 @@ function biggerAverage ($array){
                break;
            }
        }
-
-    } 
-    return $array;
+       
+    }
+    if ($sumOfPrimals / $amountOfPrimals >= 70) {
+        echo '<br>---------------<br>';
+        echo '---------------';
+        print_r($array);
+    }
+   
 }
 echo 'Array su vidurkiu didesniu nei 70: <br>';
-print_r(biggerAverage($array10));
-
+biggerAverage($array10);
 
 // PASKAITOS UZDAVINYS
 /*echo '<br>----------PASKAITOS UZDAVINYS-------------<br>';
