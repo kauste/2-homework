@@ -1,3 +1,10 @@
+<?php
+if($_SERVER['REQUEST_METHOD'] == 'POST'){ 
+    header('Location: https://localhost/bit/2-homework/webMechanikaHW/no7.php');
+    die;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +21,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $bgColor = 'yellow';
 }
 ?>
-<body style="background">
+<body style="background: <?php echo $bgColor?>">
     <form method="get">
         <button type="submit">Make me green</button>
     </form>
@@ -23,3 +30,5 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     </form>
 </body>
 </html>
+
+<!-- Pakartokite 6 uždavinį. Papildykite jį kodu, kuris naršyklę po POST metodo peradresuotų tuo pačiu adresu (t.y. į patį save) jau GET metodu. -->

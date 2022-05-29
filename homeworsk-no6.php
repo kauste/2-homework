@@ -225,7 +225,7 @@ function sum2 ($array){
 $rezult2 = sum2 ($array7);
 echo $rezult2;
 
-// 9 uzdavinys 
+// 9 uzdavinys Sugeneruokite masyvą iš trijų elementų, kurie yra atsitiktiniai skaičiai nuo 1 iki 33. Jeigu tarp trijų paskutinių elementų yra nors vienas ne pirminis skaičius, prie masyvo pridėkite dar vieną elementą- atsitiktinį skaičių nuo 1 iki 33. Vėl patikrinkite pradinę sąlygą ir jeigu reikia pridėkite dar vieną elementą. Kartokite, kol sąlyga nereikalaus pridėti elemento. 
 echo '<br>----------9-------------<br>';
 
 $array9 = [];
@@ -254,7 +254,8 @@ function primal (&$array){
 
 print_r(primal($array9));
 
-// 10 uzdavinys kitaip
+// 10 uzdavinys  Sugeneruokite masyvą iš 10 elementų, kurie yra masyvai iš 10 elementų, kurie yra atsitiktiniai skaičiai nuo 1 iki 100. Jeigu tokio didelio masyvo (ne atskirai mažesnių) pirminių skaičių vidurkis mažesnis už 70, suraskite masyve mažiausią skaičių (nebūtinai pirminį) ir prie jo pridėkite 3. Vėl paskaičiuokite masyvo pirminių skaičių vidurkį ir jeigu mažesnis nei 70 viską kartokite. 
+
 echo '<br>----------10-------------<br>';
 $array10 = [];
  for($i = 0; $i < 10; $i++){
@@ -308,7 +309,21 @@ function biggerAverage ($array){
 }
 echo 'Array su vidurkiu didesniu nei 70: <br>';
 biggerAverage($array10);
+// 11 UZDAVINYS Sugeneruokite masyvą, kurio ilgis atsitiktinai kinta nuo 10 iki 100. Masyvo reikšmes sudaro atsitiktiniai skaičiai 0-100 ir masyvai. Santykis skaičiuojamas atsitiktinai, bet taip, kad skaičiai sudarytų didesnę dalį nei masyvai. Reikšmių masyvų ilgis nuo 1 iki 5, o reikšmės analogiškos (nuo 50% iki 100% atsitiktiniai skaičiai 0-100, o likusios masyvai) ir t.t. kol visos galutinės reikšmės bus skaičiai ne masyvai. Suskaičiuoti kiek elementų turi masyvas. Suskaičiuoti masyvo elementų (tie kurie ne masyvai) sumą. Suskaičiuoti maksimalų masyvo gylį. Atvaizduokite masyvą grafiškai . Masyvą pavazduokite kaip div elementą, kuris yra display:flex, kurio viduje yra skaičiai. Kiekvienas div elementas turi savo unikalų id ir unikalią background spalvą (spalva pvz nepavaizduota). pvz: <div id=”M1”>10, 46, 67, <div id=”M2”> 89, 45, 89, 34, 90, <div id=”M3”> 84, 97 </div> 90, 56 </div> </div>
 
+
+$values = rand(0, 100);
+$secArrayLength = rand(1, 5);
+
+do {
+    $length = rand(10, 100);
+    $amountOfValues = rand($length / 2, $length);
+    $amountOfArrays = $length - $amountOfValues;
+    $i = 0;
+    
+
+    $i++;
+} while ($amountOfArrays != 0)
 // PASKAITOS UZDAVINYS
 /*echo '<br>----------PASKAITOS UZDAVINYS-------------<br>';
 $sk = rand(100, 999);
