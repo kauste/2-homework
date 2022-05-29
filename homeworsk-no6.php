@@ -310,20 +310,31 @@ function biggerAverage ($array){
 echo 'Array su vidurkiu didesniu nei 70: <br>';
 biggerAverage($array10);
 // 11 UZDAVINYS Sugeneruokite masyvą, kurio ilgis atsitiktinai kinta nuo 10 iki 100. Masyvo reikšmes sudaro atsitiktiniai skaičiai 0-100 ir masyvai. Santykis skaičiuojamas atsitiktinai, bet taip, kad skaičiai sudarytų didesnę dalį nei masyvai. Reikšmių masyvų ilgis nuo 1 iki 5, o reikšmės analogiškos (nuo 50% iki 100% atsitiktiniai skaičiai 0-100, o likusios masyvai) ir t.t. kol visos galutinės reikšmės bus skaičiai ne masyvai. Suskaičiuoti kiek elementų turi masyvas. Suskaičiuoti masyvo elementų (tie kurie ne masyvai) sumą. Suskaičiuoti maksimalų masyvo gylį. Atvaizduokite masyvą grafiškai . Masyvą pavazduokite kaip div elementą, kuris yra display:flex, kurio viduje yra skaičiai. Kiekvienas div elementas turi savo unikalų id ir unikalią background spalvą (spalva pvz nepavaizduota). pvz: <div id=”M1”>10, 46, 67, <div id=”M2”> 89, 45, 89, 34, 90, <div id=”M3”> 84, 97 </div> 90, 56 </div> </div>
+echo '<br>----------11-------------<br>';
+
+// $values = rand(0, 100);
+// $innerArrayLength = rand(1, 5);
 
 
-$values = rand(0, 100);
-$secArrayLength = rand(1, 5);
+$array11 = [];
+ $length = rand(10, 100);
 
-do {
-    $length = rand(10, 100);
-    $amountOfValues = rand($length / 2, $length);
+// do {
+    $amountOfValues = rand(ceil($length / 2), $length);
     $amountOfArrays = $length - $amountOfValues;
-    $i = 0;
-    
 
-    $i++;
-} while ($amountOfArrays != 0)
+    
+    for($i = 0; $i < $amountOfValues; $i++){
+        $array11[] = rand(0, 100);
+    }
+    for($i = $amountOfValues; $i < $length ; $i++){
+        $array11[] = [];
+    }
+    $length = rand(1, 5);
+    
+// } while ($amountOfArrays != 0)
+
+print_r($array11);
 // PASKAITOS UZDAVINYS
 /*echo '<br>----------PASKAITOS UZDAVINYS-------------<br>';
 $sk = rand(100, 999);
