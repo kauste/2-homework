@@ -16,7 +16,11 @@
 </head>
 
 <?php
-    $bgColor = $_GET['color'] ?? $_GET['color'];
+    
+    $bgColor = $_GET['color'] ?? 'pink';
+   
+    
+    
 ?>
 <body style="background: <?php echo $bgColor ?>">
     <form action="" method="post">

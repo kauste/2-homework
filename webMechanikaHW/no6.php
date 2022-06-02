@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <?php if($_SERVER['REQUEST_METHOD'] == 'GET'){
-    $bgColor = 'green';
+        $bgColor = 'green';
 }
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $bgColor = 'yellow';
