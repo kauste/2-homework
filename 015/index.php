@@ -19,6 +19,7 @@ echo $bebras1 ->tail;
 echo $bebras1 -> age; //fatal error, nes privati savybe
 
 
-$bebras-> belenkas; //get metodas paima sita; jei nebutu get magic funkcijos, gautume error
+// $bebras-> belenkas; //get metodas paima sita; jei nebutu get magic funkcijos, gautume error
+$bebras1-> name;
 $bebras1 -> whatIsYourAge();
 $bebras1 ->changeAge(37);

@@ -1,0 +1,17 @@
+{
+    "name": "super/duper",
+    "description": "good",
+    "authors": [
+        {
+            "name": "Rugile",
+            "email": "rugilestasionyte@gmail.com"
+        }
+    ],
+    
+    "autoload": {
+        "Meska\\":"",
+        "Old\\":"littleBit/"
+    },
+    
+    "require": {}
+}

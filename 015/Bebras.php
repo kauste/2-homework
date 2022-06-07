@@ -17,13 +17,15 @@ class Bebras {
         echo '<br>magic visi mire<br>'; // pasileidzia kai pasibaigiai skripto veikimas; po fatal error marinami visi objektai; kai kreipiames i neegzidtyojancia ar uz matomumo ribu esancia savybe
     }
     public function __get($what){ //butinas argumentas Ka gettint
-        echo '<br> magic get <br>'; // daznia naudojama privaciu kintamuju parodymui
-        echo '<br>'. ($this-> $what) .'<br>';
+        echo '<br> magic get '. $what . ' '// daznia naudojama privaciu kintamuju parodymui
+        . ($this-> $what) .'<br>';
         echo 'Nieko nera namie';
     }    
     public function __set($where, $what){ // pasileidzia kai i neegistuojancia arba privat savybe norim irasyti kanors
         echo '<br> magic get'.$where, $what.' <br>';
-    }                
+    }         
+    
+    
     public function whatIsYourAge(){ // GETTER - funkcija, kuri mums kanors duoda. tai vienintelis budas neredaguoti ISOREJE savybiu
         echo '<br>'. (++$this-> age) .'<br>'; //this, reiskia kintamajam, kad atiduotu, kruiam priskirsiu; negalima redaguoti, tai 
     }
