@@ -1,0 +1,16 @@
+{
+    "name": "vilties/bankas",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Bankas\\": "src/app"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rugile",
+            "email": "rugilestasionyte@gmail.com"
+        }
+    ],
+    "require": {}
+}
