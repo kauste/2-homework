@@ -1,0 +1,9 @@
+.home{
+    color:blue;
+    &__bin{
+        color:red;
+        &__content {
+            color: #fff;
+        }
+    }
+}
