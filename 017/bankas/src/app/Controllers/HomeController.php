@@ -14,6 +14,9 @@ class HomeController{
             'list' => $list]);
     }
     public function form(){
+        if(!self::auth()){
+            return self::redirect('Login');
+        }
         return App::view('form', ['messages' => Messages::get()]);
     }
     public function doForm(){
