@@ -40,7 +40,7 @@ class App{
         return ' http://'.self::DOMAIN.'/'.$url;
     }
     public static function authAdd(object $user){
-        $_SESSION['auth'] = 1;
+        $_SESSION['auth'] = 1; //cookie gali ant sesijos ir ant laiko buti parassyti
         $_SESSION['user'] = $user;
     }
     public static function authRem(object $user){
@@ -51,6 +51,9 @@ class App{
     }
     public static function authName() : string {
         return $_SESSION['name'];
+    }
+    public static function csrf(){
+        return md5('bujbgjbgkuiv'.$_SERVER['HTTP_USER_AGENT'])
     }
     private static function route(array $uri){
         $m = $_SERVER['REQUEST_METHOD'];
