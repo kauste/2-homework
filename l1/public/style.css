@@ -1,0 +1,124 @@
+h2{
+    color: rgb(0, 21, 14);
+    text-align: center;
+    width: 300px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top:50px;
+}
+body {
+    margin: 0px 200px;   
+}
+.create-form{
+    width: 400px;
+    display:flex;
+    flex-direction: column;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    row-gap: 30px;
+    padding: 50px;
+    background-color: rgb(212, 252, 227);
+}
+.create-label{
+    width: 100%;
+    font-size: 18px;
+}
+.create-input{
+    width: 100%;
+    height: 30px;
+    font-size: 18px;
+}
+.create-btn{
+    width: 200px;
+    height: 30px;
+    background-color: rgb(5, 90, 37);
+    cursor: pointer;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+.create-btn:hover{
+    box-shadow: 0 2px 6px;
+}
+.message{
+    width: 100%;
+    height: 30px;
+    background-color: aqua;
+    text-transform: uppercase;
+}
+.list-cubes{
+    display:flex;
+    gap: 30px;
+}
+.one-list-color{
+    width: 150px;
+    height: 200px;
+    display: inline-block;
+}
+.color-cube{
+    height: 150px;
+    width:100%;
+    line-height: 140px;
+    font-size: 20px;
+    text-align: center;
+}
+.header-nav{
+    height: 70px;
+    width: 100%;
+    background-color: rgb(190, 228, 228);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.nav-a{
+    text-decoration: none;
+    font-size: 30px;
+    text-align: center;
+    line-height:65px;
+    color: #222;
+    width: 100px;
+    height:95%;
+    border: 2px solid rgb(72, 117, 117);
+}
+.nav-a:hover{
+    cursor: pointer;
+    background-color: rgb(72, 117, 117);
+}
+.list-action{
+    font-size: 18px;
+    color: #333;
+    text-transform: uppercase;
+    text-decoration:none;
+    border:  2px solid rgb(72, 117, 117);
+    background-color: rgb(190, 228, 228);
+}
+.list-actions{
+    display: flex;
+    justify-content: space-around;
+}
+.list-action:hover{
+    cursor: pointer;
+    background-color: rgb(72, 117, 117);
+}
+.source-form{
+    width: 300px;
+    display:flex;
+    column-gap: 15px;
+    padding: 20px;
+    align-items:center
+}
+.sorce-name{
+    font-size: 18px;
+}
+.source-select{
+    font-size: 18px;
+}
+.source-btn{
+    font-size: 18px;
+    background-color: rgb(72, 117, 117) ;
+    color:#fff
+}
+.source-btn:hover{
+    cursor:pointer;
+    color:#333;
+    background-color: rgb(190, 228, 228);;
+}

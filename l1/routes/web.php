@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\ColorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/colors/list', [ColorController::class, 'index'])->name('colorsList');
+
+Route::get('/colors/create', [ColorController::class, 'create'])->name('colorsCreate');
+Route::post('/colors/create', [ColorController::class, 'store'])->name('colorsStore');
+Route::get('/colors/edit/{color}', [ColorController::class, 'edit'])->name('colorsEdit');
+Route::put('/colors/edit/{color}', [ColorController::class, 'update'])->name('colorsUpdate');
+Route::delete('/colors/delete/{color}', [ColorController::class, 'destroy'])->name('colorsDestroy');
