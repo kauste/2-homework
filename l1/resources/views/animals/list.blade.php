@@ -1,6 +1,6 @@
-@extends('colors.main')
+@extends('animals.main')
 @section('content')
-<form class="source-form" action="{{route('colorsList')}}" method="get"> <!--ar gali forma buti get??-->
+<form class="source-form" action="{{route('animalsList')}}" method="get"> <!--ar gali forma buti get??-->
     <div class="sorce-name">Sort by</div>
     <select name="sort" class="source-select">
         <option class="sorce-option" value="asc" @if($sort == 'asc') selected @endif>A-Z</option>
@@ -10,12 +10,12 @@
     <button class="source-btn"type="submit">Sort</button>
 </form>
 <div class="list-cubes">
-    @forelse($colors as $color)
+    @forelse($animals as $animal)
     <div class="one-list-color">
-        <div class="color-cube" style="background-color:{{$color->color}}"><b>{{$color->title}}</b><br>{{$color->color}} </div>
+        <div class="color-cube" style="background:{{$animal->showColorFromOtherTable->color}}"><b>{{$animal->title}}</b><br>{{$animal->showColorFromOtherTable->title}} </div>
         <div class="list-actions">
-            <a class="list-action" href="{{route('colorsEdit', $color)}}">EDIT</a>
-            <form method="post" action={{route('colorsDestroy', $color)}}>
+            <a class="list-action" href="{{route('animalsEdit', $animal)}}">EDIT</a>
+            <form method="post" action={{route('animalsDestroy', $animal)}}>
                 @csrf
                 @method('delete')
                 <button class="list-action" type="submit">DESTROY</button>
@@ -23,7 +23,7 @@
         </div>
     </div>
     @empty
-    <div>Nebera spalvyciu</div>
+    <div>Nebera animalu</div>
     @endforelse
 </div>
 @endsection
