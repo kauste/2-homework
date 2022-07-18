@@ -7,10 +7,32 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
+
+body{
+    font-family: 'IM Fell English SC', serif;
+}
+
 .list-group-item{
-    .list-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .color-cube{
+        width: 300px;
+        height:45px;
+        text-align: center;
+        line-height: 48px;
+        border-radius: 10px;
+        b{
+            text-transform: capitalize;
+            font-size: 22px;
+        }
+    }
+    .list-actions{
         display:flex;
         gap: 10px;
         margin-top: 10px;
     }
 }
+    
+
+

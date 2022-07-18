@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class ColorController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -103,7 +108,6 @@ class ColorController extends Controller
      */
     public function destroy(Color $color)
     {
-        dump($color);
         if(!$color->animals->count()){
             $color->delete();
             $msg = 'No more of this terrible color.';
