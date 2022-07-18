@@ -1,4 +1,4 @@
-@extends('colors.main')
+@extends('layouts.app')
 
 @section('content')
 <form class="create-form" action="{{route('colorsStore')}}" method="post">

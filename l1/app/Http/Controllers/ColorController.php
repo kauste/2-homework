@@ -103,7 +103,12 @@ class ColorController extends Controller
      */
     public function destroy(Color $color)
     {
-        $color->delete();
-        return redirect()->route('colorsList')->with('message', 'No more of this terrible color.');
+        dump($color);
+        if(!$color->animals->count()){
+            $color->delete();
+            $msg = 'No more of this terrible color.';
+            return redirect()->route('colorsList')->with('message', 'No more of this terrible color.');
+        }
+        return redirect()->back()->with('message', 'ERROR! Hey darling, how could you even think to delete this color, there are '.$color->animals->count().' animal(s), whose color is this, so its imposible to delete'); 
     }
 }

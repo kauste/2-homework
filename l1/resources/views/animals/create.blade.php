@@ -1,4 +1,4 @@
-@extends('animals.main')
+@extends('layouts.app')
 
 @section('content')
 <form class="create-form" action="{{route('animalsCreate')}}" method="post">

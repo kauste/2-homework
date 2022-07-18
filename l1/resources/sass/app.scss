@@ -1,0 +1,16 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+.list-group-item{
+    .list-actions {
+        display:flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+}

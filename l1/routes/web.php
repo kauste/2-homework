@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // colors
+Route::get('/', [AnimalController::class, 'index']);
 Route::get('/colors/list', [ColorController::class, 'index'])->name('colorsList');
 Route::get('/colors/create', [ColorController::class, 'create'])->name('colorsCreate');
 Route::post('/colors/create', [ColorController::class, 'store'])->name('colorsStore');
@@ -28,3 +29,6 @@ Route::post('/animals/create', [AnimalController::class, 'store'])->name('animal
 Route::get('/animals/edit/{animal}', [AnimalController::class, 'edit'])->name('animalsEdit');
 Route::put('/animals/edit/{animal}', [AnimalController::class, 'update'])->name('animalsUpdate');
 Route::delete('/animals/delete/{animal}', [AnimalController::class, 'destroy'])->name('animalsDestroy');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
