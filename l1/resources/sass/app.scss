@@ -34,5 +34,12 @@ body{
     }
 }
     
+.sort-form{
+    display:flex;
+    column-gap:10px;
+    select{
+        border-radius:5px;
+    }
 
+}
 

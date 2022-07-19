@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">PAVADINIMAS</div>
+                <div class="card-header">Create color</div>
 
                 <div class="card-body">
                     <form class="create-form" action="{{route('colorsStore')}}" method="post">

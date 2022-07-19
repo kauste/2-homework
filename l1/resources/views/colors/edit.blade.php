@@ -8,7 +8,7 @@
                 <div class="card-header">Change color</div>
 
                 <div class="card-body">
-                    <form class="form-group" action="{{route('colorsUpdate', $color)}}" method="post">
+                    <form action="{{route('colorsUpdate', $color)}}" method="post">
                         <div class="form-group">
                             <label class="create-label" for="color_choice">Change this ugly color to normal:</label>
                             <input class="form-control" type="color" id="color_choice" name="color_choice" value="{{$color->color}}">

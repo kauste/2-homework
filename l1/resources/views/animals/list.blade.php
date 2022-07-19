@@ -3,37 +3,42 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">List of beasts</div>
-
+            <div class="card mb-4">
+                <div class="card-header">Sort by</div>
                 <div class="card-body">
-                    <form class="source-form" action="{{route('animalsList')}}" method="get">
+                    <form class="form-group sort-form" action="{{route('animalsList')}}" method="get">
                         <!--ar gali forma buti get??-->
-                        <div class="sorce-name">Sort by</div>
-                        <select name="sort" class="source-select">
+                        <select name="sort" class="col-3">
                             <option class="sorce-option" value="asc" @if($sort=='asc' ) selected @endif>A-Z</option>
                             <option class="sorce-option" value="desc" @if($sort=='desc' ) selected @endif>Z-A</option>
                             <option class="sorce-option" value="default" @if($sort=='default' || $sort==null)selected @endif>default</option>
                         </select>
-                        <button class="source-btn" type="submit">Sort</button>
+                        <button class="btn btn-outline-success ml-2" type="submit">Sort</button>
                     </form>
-                    <div class="list-cubes">
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h2>List of beasts</h2>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
                         @forelse($animals as $animal)
-                        <div class="one-list-color">
-                            <div class="color-cube" style="background:{{$animal->showColorFromOtherTable->color}}"><b>{{$animal->title}}</b><br>{{$animal->showColorFromOtherTable->title}} </div>
+                        <li class="list-group-item">
+                            <div class="color-cube" style="background:{{$animal->showColorFromOtherTable->color}}"><b>{{$animal->title}}</div>
                             <div class="list-actions">
-                                <a class="list-action" href="{{route('animalsEdit', $animal)}}">EDIT</a>
+                                <a class="btn btn-outline-info"  href="{{route('animalsEdit', $animal)}}">EDIT</a>
                                 <form method="post" action={{route('animalsDestroy', $animal)}}>
                                     @csrf
                                     @method('delete')
-                                    <button class="list-action" type="submit">DESTROY</button>
+                                    <button class="btn btn-outline-danger" type="submit">DESTROY</button>
                                 </form>
                             </div>
-                        </div>
+                        </li>
                         @empty
-                        <div>Nebera animalu</div>
+                        <li class="list-group-item">Nebera animalu</li>
                         @endforelse
-                    </div>
+                    </ul>
                 </div>
             </div>
         </div>
