@@ -7,7 +7,6 @@
                 <div class="card-header">Sort by</div>
                 <div class="card-body">
                     <form class="source-form sort-form" action="{{route('colorsList')}}" method="get">
-                        <!--ar gali forma buti get??-->
                         <select name="sort" class="source-select col-3">
                             <option class="sorce-option" value="asc" @if($sort=='asc' ) selected @endif>A-Z</option>
                             <option class="sorce-option" value="desc" @if($sort=='desc' ) selected @endif>Z-A</option>
@@ -24,10 +23,11 @@
                 <div class="card-body">
                     <ul class="list-group">
                         @forelse($colors as $color)
-                        <li class="list-group-item">
+                        <li class="list-group-item" @if(Auth::user()->role < 9) style="display:flex; justify-content:center" @endif>
                             <div class="color-cube" style="background-color:{{$color->color}}">
                                 <b>{{$color->title}}</b>
                             </div>
+                            @if(Auth::user()->role > 9)
                             <div class="list-actions">
                                 <div>
                                     <a class="btn btn-outline-info" href="{{route('colorsEdit', $color)}}">EDIT</a>
@@ -38,6 +38,7 @@
                                     <button class="btn btn-outline-danger" type="submit">DESTROY</button>
                                 </form>
                             </div>
+                            @endif
                         </li>
                         @empty
                         <li class="list-group-item">Nebera spalvyciu</li>

@@ -24,8 +24,9 @@
                 <div class="card-body">
                     <ul class="list-group">
                         @forelse($animals as $animal)
-                        <li class="list-group-item">
+                        <li class="list-group-item" @if(Auth::user()->role < 9) style="display:flex; justify-content:center" @endif>
                             <div class="color-cube" style="background:{{$animal->showColorFromOtherTable->color}}"><b>{{$animal->title}}</div>
+                            @if(Auth::user()->role > 9)
                             <div class="list-actions">
                                 <a class="btn btn-outline-info"  href="{{route('animalsEdit', $animal)}}">EDIT</a>
                                 <form method="post" action={{route('animalsDestroy', $animal)}}>
@@ -34,6 +35,7 @@
                                     <button class="btn btn-outline-danger" type="submit">DESTROY</button>
                                 </form>
                             </div>
+                            @endif
                         </li>
                         @empty
                         <li class="list-group-item">Nebera animalu</li>

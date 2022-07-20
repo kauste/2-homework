@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\AnimalController;
+use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,22 +14,33 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// colors
-Route::get('/', [AnimalController::class, 'index']);
-Route::get('/colors/list', [ColorController::class, 'index'])->name('colorsList');
-Route::get('/colors/create', [ColorController::class, 'create'])->name('colorsCreate');
-Route::post('/colors/create', [ColorController::class, 'store'])->name('colorsStore');
-Route::get('/colors/edit/{color}', [ColorController::class, 'edit'])->name('colorsEdit');
-Route::put('/colors/edit/{color}', [ColorController::class, 'update'])->name('colorsUpdate');
-Route::delete('/colors/delete/{color}', [ColorController::class, 'destroy'])->name('colorsDestroy');
+//front
+Route::name('front')->group(function(){
+    Route::get('/', [FrontController::class, 'index'])->name('Index');
+    // Route::get('/{id}', [FrontController::class, 'index'])->name('IndexId');
+});
 
+
+// colors
+Route::prefix('colors')->name('colors')->group(function () {
+    Route::get('/', [AnimalController::class, 'index']);
+    Route::get('/list', [ColorController::class, 'index'])->name('List')->middleware('role:user'); // o jei du, i masyva??
+    Route::get('/create', [ColorController::class, 'create'])->name('Create')->middleware('role:admin');
+    Route::post('/create', [ColorController::class, 'store'])->name('Store')->middleware('role:admin');
+    Route::get('/edit/{color}', [ColorController::class, 'edit'])->name('Edit')->middleware('role:admin');
+    Route::put('/edit/{color}', [ColorController::class, 'update'])->name('Update')->middleware('role:admin');
+    Route::delete('/delete/{color}', [ColorController::class, 'destroy'])->name('Destroy')->middleware('role:admin');
+});
 //animals
-Route::get('/animals/list', [AnimalController::class, 'index'])->name('animalsList');
-Route::get('/animals/create', [AnimalController::class, 'create'])->name('animalsCreate');
-Route::post('/animals/create', [AnimalController::class, 'store'])->name('animalsStore');
-Route::get('/animals/edit/{animal}', [AnimalController::class, 'edit'])->name('animalsEdit');
-Route::put('/animals/edit/{animal}', [AnimalController::class, 'update'])->name('animalsUpdate');
-Route::delete('/animals/delete/{animal}', [AnimalController::class, 'destroy'])->name('animalsDestroy');
+Route::prefix('animals')->name('animals')->group(function(){
+Route::get('/list', [AnimalController::class, 'index'])->name('List')->middleware('role:user');
+Route::get('/create', [AnimalController::class, 'create'])->name('Create')->middleware('role:admin');//po dvitaskio-stringas ir ji pasiiimi treciu parametru
+Route::post('/create', [AnimalController::class, 'store'])->name('Store')->middleware('role:admin');
+Route::get('/edit/{animal}', [AnimalController::class, 'edit'])->name('Edit')->middleware('role:admin');
+Route::put('/edit/{animal}', [AnimalController::class, 'update'])->name('Update')->middleware('role:admin');
+Route::delete('/delete/{animal}', [AnimalController::class, 'destroy'])->name('Destroy')->middleware('role:admin');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
