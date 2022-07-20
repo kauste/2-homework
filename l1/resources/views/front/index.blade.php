@@ -23,7 +23,7 @@
                             </div>
                         </li>
                         @empty
-                        <li class="list-group-item">Nebera animalu</li>
+                        <li class="list-group-item">No animals.</li>
                         @endforelse
                     </ul>
                 </div>
