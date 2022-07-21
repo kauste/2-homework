@@ -41,7 +41,7 @@
                             @endif
                         </li>
                         @empty
-                        <li class="list-group-item">Nebera spalvyciu</li>
+                        <li class="list-group-item">No colors</li>
                         @endforelse
                     </ul>
                 </div>

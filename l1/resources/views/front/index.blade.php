@@ -16,8 +16,6 @@
                             <div class="color-cube" style="background:{{$animal->color}}"><b>{{$animal->title}}</b> <i>{{$animal->color_title}}</i></div>
                             <div class="list-actions">
                                 <form method="get" action={{route('frontIndex')}}>
-                                    @csrf
-                                    @method('get')
                                     <button class="btn btn-outline-danger" type="submit">Love it</button>
                                 </form>
                             </div>

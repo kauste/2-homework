@@ -23,8 +23,8 @@
      </form>
 
      <form class="form-group search-form" action="{{route('frontIndex')}}" method="get">
-         <input class="col-9" type="text" name="s">
-         <button class="btn btn-outline-success col-2" type="submit">Search</button>
+         <input class="col-9" type="text" name="s" value="{{$s}}">
+         <button class="btn btn-outline-success col-2" type="submit" ">Search</button>
      </form>
 
  </div>
