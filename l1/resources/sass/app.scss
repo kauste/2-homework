@@ -31,6 +31,13 @@ body{
         display:flex;
         gap: 10px;
         margin-top: 10px;
+        padding:10px;
+        .client-form{
+            display:flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        
     }
 }
     
@@ -60,3 +67,7 @@ body{
     justify-content: space-between;
 }
 
+.message{
+    background-color:rgb(60, 161, 161);
+    padding-left: 20px;
+}

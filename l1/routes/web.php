@@ -2,6 +2,7 @@
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 //front
 Route::name('front')->group(function(){
     Route::get('/', [FrontController::class, 'index'])->name('Index');
-    // Route::get('/{id}', [FrontController::class, 'index'])->name('IndexId');
+    Route::post('/order', [OrderController::class, 'add'])->name('Add');
 });
 
 

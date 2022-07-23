@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Color;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Session;
 
 class ColorController extends Controller
 {
@@ -56,8 +58,22 @@ class ColorController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'color_name' => ['required', 'min:3', 'max:50'],
+            'color_choice' => ['required', 'regex:/^\#[a-zA-Z0-9]{6}/'],
+        ],
+        [
+            'color_name.min' => 'Color name should be at least 3 symbols length.',
+            'color_name.max' => 'Color name should not be longer than 20 symbols.',
+            'color_choice.regex' => 'Go fuck yourself',
+
+        ]);
+        if($validator->fails()){
+            $request->flash();
+           return redirect()->back()->withErrors($validator);
+        }
         $color = new Color;
-        $color->title = $request->color_name ?? 'no title';
+        $color->title = $request->color_name;
         $color->color = $request->color_choice;
         $color->save();
         return redirect()->route('colorsList')->with('message', 'color is added');
@@ -94,6 +110,21 @@ class ColorController extends Controller
      */
     public function update(Request $request, Color $color)
     {
+        $validator = Validator::make($request->all(), [
+            'color_name' => ['required', 'min:3', 'max:50'],
+            'color_choice' => ['required', 'regex:/^\#[a-zA-Z0-9]{6}/'],
+        ],
+        [
+            'color_name.min' => 'Color name should be at least 3 symbols length.',
+            'color_name.max' => 'Color name should not be longer than 20 symbols.',
+            'color_choice.regex' => 'Go fuck yourself',
+
+        ]);
+        if($validator->fails()){
+            $request->flash();
+           return redirect()->back()->withErrors($validator);
+        }
+
         $color->title = $request-> color_name;
         $color->color = $request->color_choice;
         $color->save();

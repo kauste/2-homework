@@ -11,11 +11,11 @@
                     <form class="create-form" action="{{route('colorsStore')}}" method="post">
                         <div class="form-group">
                             <label class="create-label" for="color_choice">Išsirinkite spalvą</label>
-                            <input class="form-control" type="color" id="color_choice" name="color_choice" />
+                            <input class="form-control" type="color" id="color_choice" name="color_choice" value="{{old('color_choice')}}"/>
                         </div>
                         <div class="form-group">
                             <label class="create-label" for="color_name">Suteikite jai pavadinimą</label>
-                            <input class="form-control" type="text" id="color_name" name="color_name" />
+                            <input class="form-control" type="text" id="color_name" name="color_name" value="{{old('color_name')}}"/>
                         </div>
                         @csrf
                         <button class="btn btn-outline-success mt-2" type="submit">Choose</button>
